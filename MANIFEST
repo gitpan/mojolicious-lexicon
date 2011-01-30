@@ -9,5 +9,6 @@ t/lib/Lexemes.pm
 t/lib/Lexemes/I18N.pm
 t/mojolicious-command-generate-lexicon.t
 t/mojox-i18n-lexemes.t
+t/pod.t
 t/templates/test.html.ep
 META.yml                                 Module meta-data (added by MakeMaker)

@@ -11,6 +11,8 @@ __PACKAGE__->attr(usage => <<"EOF");
 usage: $0 generate lexicon [language] [templates]
 EOF
 
+our $VERSION = 0.991;
+
 sub run {
     my ($self, $language, @templates) = @_;
 
@@ -82,23 +84,22 @@ our %Lexicon = (
 );
 
 1;
-
 __END__
 
 =head1 NAME
 
-MojoliciousX::Command::Generate::Lexicon - Generate Lexicon Command
+Mojolicious::Command::Generate::Lexicon - Generate Lexicon Command
 
 =head1 SYNOPSIS
 
-    $ mojolicious generate lexicon
+    $ ./script/my_mojolicious_app generate lexicon
 
 Or as perl module
 
     use Mojolicious::Command::Generate::Lexicon;
 
     my $l = Mojolicious::Command::Generate::Lexicon->new;
-    $inflate->run(@files);
+    $inflate->run($language, @files);
 
 
 =head1 SEE ALSO
@@ -115,7 +116,11 @@ L<MojoX::I18N::Lexemes>
 
 =head2 Repository
 
-    http://github.com/und3f/mojoliciousx-lexicon
+    http://github.com/und3f/mojolicious-lexicon
+
+=head1 AUTHOR
+
+Sergey Zasenko, C<undef@cpan.org>.
 
 =head1 COPYRIGHT
 
@@ -125,5 +130,3 @@ This program is free software, you can redistribute it and/or modify it
 under the terms of the Artistic License version 2.0.
 
 =cut
-
-1;
