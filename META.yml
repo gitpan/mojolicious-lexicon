@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               mojolicious-lexicon
-version:            0.9
+version:            0.91
 abstract:           ~
 author:
     - Sergey Zasenko <undef@cpan.org>
