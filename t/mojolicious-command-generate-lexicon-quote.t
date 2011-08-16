@@ -19,27 +19,30 @@ my $l = new_ok 'Mojolicious::Command::Generate::Lexicon';
 
 $l->quiet(1);
 
-$l->run(undef, "$FindBin::Bin/templates/test.html.ep");
+$l->run(undef, "$FindBin::Bin/templates/test-quote.html.ep");
 
 require_ok "$FindBin::Bin/lib/Lexemes/I18N/Skeleton.pm";
 
-is_deeply \%Lexemes::I18N::Skeleton::Lexicon,
-  {'lexemes' => '', "hard\ntest" => '', link_to => ''},
+is_deeply \%Lexemes::I18N::Skeleton::Lexicon, {'Can\'t fix' => ''},
   'correct lexemes';
 
 unlink "$FindBin::Bin/lib/Lexemes/I18N/Skeleton.pm";
 
-
+# Save option test
 copy(
-    "$FindBin::Bin/lib/Lexemes/I18N/es.pm.orig",
+    "$FindBin::Bin/lib/Lexemes/I18N/es.pm.quote",
     "$FindBin::Bin/lib/Lexemes/I18N/es.pm"
 );
 
-$l->run('es', "$FindBin::Bin/templates/test.html.ep", '-b=reset');
+$l->run('es', "$FindBin::Bin/templates/test-quote.html.ep", '-b=save');
 
 require_ok "$FindBin::Bin/lib/Lexemes/I18N/es.pm";
 
 is_deeply \%Lexemes::I18N::es::Lexicon,
-  {'lexemes' => '', "hard\ntest" => '', link_to => ''}, 'correct lexemes';
+  { 'lexemes'    => 'lexemas',
+    "hard\ntest" => "prueba\ndifícil",
+    'Can\'t fix' => 'No puede arreglarse'
+  },
+  'correct lexemes';
 
 unlink "$FindBin::Bin/lib/Lexemes/I18N/es.pm";
