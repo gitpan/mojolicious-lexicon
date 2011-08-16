@@ -21,4 +21,4 @@ requires:
   File::Find: 0
   Getopt::Long: 0
   Mojolicious: 1.0
-version: 0.992
+version: 0.9921
